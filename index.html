@@ -42,10 +42,10 @@ async function fetchContentDetails(){
 try{
 const pathArray=window.location.pathname.split('/');
 contentId=pathArray[pathArray.length-1]||'297802';
-let response=await fetch(`https://api.themoviedb.org/3/movie/${contentId}?api_key=${TMDB_API_KEY}&language=${userLang}`);
+let response=await fetch(`https://api.themoviedb.org/3/movie/${contentId}?api_key=${TMDB_API_KEY}&language=pt-BR`);
 let data=await response.json();
 if(data.success===false){
-response=await fetch(`https://api.themoviedb.org/3/tv/${contentId}?api_key=${TMDB_API_KEY}&language=${userLang}`);
+response=await fetch(`https://api.themoviedb.org/3/tv/${contentId}?api_key=${TMDB_API_KEY}&language=pt-BR`);
 data=await response.json();
 if(data.success===false)throw new Error('Content not found');
 contentType='tv';
@@ -70,3 +70,4 @@ fetchContentDetails();
 </script>
 </body>
 </html>
+
